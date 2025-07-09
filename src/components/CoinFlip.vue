@@ -29,73 +29,97 @@ const flipping = ref(false)
 const result = ref<'Орел' | 'Решка' | null>(null)
 
 function flipCoin() {
-    flipping.value = true
-    result.value = null
+  flipping.value = true
+  result.value = null
 
-    const isTails = Math.random() < 0.5
-    const baseAngle = isTails ? 180 : 0
-    const fullRotations = 360 * 4 // 4 оборота
+  const baseAngle = Math.random() < 0.5 ? 0 : 180
+  const fullRotations = 360 * 4
 
-    // Добавляем к предыдущему значению, чтобы сохранить направление
-    rotation.value += fullRotations + baseAngle
+  rotation.value += fullRotations + baseAngle
 
-    // Устанавливаем результат после завершения анимации
-    setTimeout(() => {
-        result.value = isTails ? 'Решка' : 'Орел'
-        flipping.value = false
-    }, 1500)
+  // показываем результат после окончания анимации
+  setTimeout(() => {
+    const finalAngle = rotation.value % 360
+    result.value = finalAngle === 180 ? 'Решка' : 'Орел'
+    flipping.value = false
+  }, 1500)
 }
+
 </script>
 
 <style scoped>
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5vh auto 0;
+  padding: 0 1rem;
+  max-width: 600px;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
 }
 
 .coin-wrapper {
-    width: 150px;
-    height: 150px;
-    perspective: 1000px;
-    margin: 40px 0;
+  width: clamp(120px, 30vw, 200px);
+  height: clamp(120px, 30vw, 200px);
+  perspective: 1000px;
+  margin: 40px 0;
 }
 
 .coin {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 1.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.5s ease-in-out;
 }
 
 .side {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
 }
 
 .front {
-    transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 .back {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .coin img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 button {
-    padding: 12px 24px;
-    font-size: 18px;
-    cursor: pointer;
+  padding: 0.75em 1.5em;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.3s ease;
 }
+
+button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-top: 1.5rem;
+}
+
 </style>

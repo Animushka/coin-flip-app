@@ -1,5 +1,33 @@
-# Vue 3 + TypeScript + Vite
+# 🪙 Орел или Решка
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Интерактивное приложение на **Vue 3 + TypeScript + Vite**, в котором можно подбросить виртуальную монету и получить результат — **Орел** или **Решка** — с реалистичной 3D-анимацией вращения.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+---
+
+## ✨ Возможности
+
+- 🎯 Случайный выбор результата
+- 🌀 Плавная 3D-анимация монеты (CSS `rotateY`)
+- ⏱ Результат появляется после окончания анимации
+- 📱 Полностью адаптивный интерфейс
+- ⚙️ Современный стек: Vue 3, Composition API, TypeScript, Vite
+
+---
+
+## 📦 Установка и запуск
+
+```bash
+# 1. Клонируйте репозиторий
+git clone https://github.com/your-username/coin-flip-app.git
+cd coin-flip-app
+
+# 2. Установите зависимости
+npm install
+
+# 3. Запустите проект
+npm run dev 
+```
+
+## 🖼 Скриншот
+
+(image.png)
