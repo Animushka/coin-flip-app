@@ -18,7 +18,7 @@
 
 ```bash
 # 1. Клонируйте репозиторий
-git clone https://github.com/your-username/coin-flip-app.git
+git clone https://github.com/Animushka/coin-flip-app.git
 cd coin-flip-app
 
 # 2. Установите зависимости
