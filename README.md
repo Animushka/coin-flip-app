@@ -28,6 +28,6 @@ npm install
 npm run dev 
 ```
 
-## 🖼 Скриншот
+## 🖼 Внешний вид
 
-(image.png)
+![image](https://github.com/user-attachments/assets/24777bea-0aaa-4c2e-8143-8b124e59a735)
