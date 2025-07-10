@@ -1,24 +1,23 @@
 <template>
-    <div class="container">
-        <h1>Орел или Решка 🪙</h1>
-
-        <div class="coin-wrapper">
-            <div class="coin" :style="{ transform: `rotateY(${rotation}deg)` }">
-                <div class="side front">
-                    <img src="/heads.png" alt="Орел" />
-                </div>
-                <div class="side back">
-                    <img src="/tails.png" alt="Решка" />
-                </div>
-            </div>
-        </div>
-
-        <button :disabled="flipping" @click="flipCoin">
-            {{ flipping ? 'Бросаем...' : 'Подбросить' }}
-        </button>
-
-        <p v-if="!flipping && result">Результат: {{ result }}</p>
+  <div class="container">
+    <div class="result-wrapper">
+      <p v-if="!flipping && result">Результат: {{ result }}</p>
     </div>
+    <div class="coin-wrapper">
+      <div class="coin" :style="{ transform: `rotateY(${rotation}deg)` }">
+        <div class="side front">
+          <img src="/heads.png" alt="Орел" />
+        </div>
+        <div class="side back">
+          <img src="/tails.png" alt="Решка" />
+        </div>
+      </div>
+    </div>
+
+    <button :disabled="flipping" @click="flipCoin">
+      {{ flipping ? 'Бросаем...' : 'Подбросить' }}
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -58,16 +57,14 @@ function flipCoin() {
   text-align: center;
 }
 
-h1 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  margin-bottom: 2rem;
+.result-wrapper {
+  min-height: 6em; /* или clamp(...) если хочешь адаптив */
 }
 
 .coin-wrapper {
   width: clamp(120px, 30vw, 200px);
   height: clamp(120px, 30vw, 200px);
   perspective: 1000px;
-  margin: 40px 0;
 }
 
 .coin {
@@ -103,6 +100,7 @@ h1 {
 
 button {
   padding: 0.75em 1.5em;
+  margin-top: 1em;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   cursor: pointer;
   border: none;
@@ -119,7 +117,5 @@ button:disabled {
 
 p {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
-  margin-top: 1.5rem;
 }
-
 </style>

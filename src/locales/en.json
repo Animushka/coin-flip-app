@@ -1,0 +1,21 @@
+{
+  "coinFlip": "Coin Flip",
+  "eightBall": "8 Ball",
+  "flip": "Flip",
+  "flipping": "Flipping...",
+  "result": "Result",
+  "heads": "Heads",
+  "tails": "Tails",
+  "answers": [
+    "Yes",
+    "No",
+    "Maybe",
+    "Ask later",
+    "Definitely",
+    "Unlikely",
+    "Absolutely",
+    "Cannot predict now",
+    "Very doubtful",
+    "Most likely"
+  ]
+}
